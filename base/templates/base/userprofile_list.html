@@ -1,0 +1,69 @@
+{% extends "base/base_generic.html" %}
+
+{% block content %}
+<br>
+<center>
+
+<form>
+<div class="input-group" style="width: 20%">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit" value="Search">Go!</button>
+      </span>
+      <input style="background-color: lightyellow;" type="text" name='q' class="form-control" placeholder="Search for..." aria-label="Search for..." value="{{request.GET.q}}">
+    </div>
+    </form>
+</center>
+<hr>
+
+  {% if userprofile_list %}
+    <ul>
+
+      {% for user in userprofile_list %}
+        {% if user.first_name %} 
+      <div class="row list-row">
+       <div class="col-sm-2"> {% if user.profile_image%}
+        <img class="rounded-circle" width="100px" height="100px"  src="{{user.profile_image.url}}">
+        {%else%}
+        <img class="rounded-circle" width="100px" height="100px"  src="http://via.placeholder.com/60x2">
+      {%endif%}
+    </div>
+        <div class="col-sm-5">
+          
+          <div class="container">
+              <h4><b> <a href="{{ user.get_absolute_url }}" >{{ user.first_name }} {{ user.last_name }}</a></h4>
+           
+             {% if user.user_type == "tea" %}
+             <p>&nbsp;</p>
+             {%else%}
+              
+              <small style="color: grey;">Current CGPA: {{user.current_cgpa}} | Skill Count:
+              {% for item in count %}
+              {% if item.pk == user.pk %}
+             {{ item.count }}
+                | Project Count:  {{ item.project }} {% endif %}
+               {%endfor%} </small> 
+                 <p></p> 
+               {% endif %}
+          </div>
+          <hr>
+        </div>
+
+      
+      {% endif%}
+
+     
+
+              
+      </div>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+    <br>
+    <br>
+    <hr>
+      <center><p>Zero records to display</p></center>
+      <hr>
+    {% endif %}       
+
+{% endblock %}

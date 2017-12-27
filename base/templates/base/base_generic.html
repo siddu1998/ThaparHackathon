@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon"
+          type="image/png"
+          href="http://shss.thapar.edu/thapar-logo.png"/>
+  <title>
+        Student Feedback Portal
+    </title>
+  {% load staticfiles %}
+
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Bitter|Germania+One" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+<link rel="stylesheet" href="{% static 'mysite/css/extra.css' %}" >
+
+<script src="{% static 'mysite/js/base.js' %}"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% block headfile %}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark navbar-custom" id="#navbar">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="/" style="font-family: 'Bitter', serif;">Thapar University <br> School of Computer Science</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="/" style="margin-left: 20px;">Home <span class="sr-only">(current)</span></a>
+      </li>
+    
+     
+
+      <li class="nav-item active">
+        
+  
+</li>
+<div class="dropdown">
+    <div class="nav-link dropdown-toggle" data-toggle="dropdown">People
+    </div>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <li><a class="dropdown-item" tabindex="-1" href="/studentlist/tea/fac">Faculty</a></li>
+     
+      <li class="dropdown-submenu">
+        <a class="test dropdown-item dropdown-toggle" tabindex="-1" href="#">Students <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-menu" tabindex="-1" href="#">2nd level dropdown</a></li>
+          <li><a class="dropdown-menu" tabindex="-1" href="#">2nd level dropdown</a></li>
+          <li class="dropdown-submenu">
+            <a class="test dropdown-item dropdown-toggle" href="#">BTECH <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"  href="/studentlist/btec/1st">First Year</a></li>
+              <li><a class="dropdown-item"  href="/studentlist/btec/2nd">Second Year</a></li>
+              <li><a class="dropdown-item"  href="/studentlist/btec/3rd">Third Year</a></li>
+              <li><a class="dropdown-item"  href="/studentlist/btec/4th">Fourth Year</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu">
+            <a class="test dropdown-item dropdown-toggle" href="#">MTECH <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"  href="/studentlist/mtec/1st">First year</a></li>
+              <li><a class="dropdown-item"  href="/studentlist/mtec/2nd">Second year</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu  ">
+            <a class="test dropdown-item dropdown-toggle" href="/studentlist/btec/1st">Research <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"  href="#">3rd level dropdown</a></li>
+              <li><a class="dropdown-item"  href="#">3rd level dropdown</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+    
+
+      
+
+      <li class="nav-item active">
+        
+        <div class="dropdown">
+    <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >Research</a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Research Areas</a>
+    <a class="dropdown-item" href="#">Labs</a>
+    <a class="dropdown-item" href="#">Projects</a>
+   
+  </div>
+</div>
+
+      </li>
+
+
+       <li class="nav-item active">
+        
+       <div class="dropdown">
+    <div class="nav-link dropdown-toggle" data-toggle="dropdown">Academics
+    </div>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <li><a class="dropdown-item" tabindex="-1" href="/studentlist/tea/fac">Programmes</a></li>
+     
+      <li class="dropdown-submenu">
+        <a class="test dropdown-item dropdown-toggle" tabindex="-1" href="#">Courses <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-menu" tabindex="-1" href="#">2nd level dropdown</a></li>
+          <li><a class="dropdown-menu" tabindex="-1" href="#">2nd level dropdown</a></li>
+          <li class="dropdown-submenu">
+            <a class="test dropdown-item dropdown-toggle" href="#">BTECH <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"  href="/courselist/btec/1st">First Year</a></li>
+              <li><a class="dropdown-item"  href="/courselist/btec/2nd">Second Year</a></li>
+              <li><a class="dropdown-item"  href="/courselist/btec/3rd">Third Year</a></li>
+              <li><a class="dropdown-item"  href="/courselist/btec/4th">Fourth Year</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu">
+            <a class="test dropdown-item dropdown-toggle" href="#">MTECH <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"  href="/courselist/mtec/1st">First year</a></li>
+              <li><a class="dropdown-item"  href="/list/mtec/2nd">Second year</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu  ">
+            <a class="test dropdown-item dropdown-toggle" href="/studentlist/btec/1st">Research <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"  href="#">3rd level dropdown</a></li>
+              <li><a class="dropdown-item"  href="#">3rd level dropdown</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+      </li>
+
+   <li class="nav-item active">
+        
+        <div class="dropdown">
+    <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >Placements</a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">History</a>
+    <a class="dropdown-item" href="#">Points of Pride</a>
+    <a class="dropdown-item" href="#">Placements Report</a>
+    
+  </div>
+</div>
+ 
+
+      </li>
+ </ul>
+ 
+    {% if user.is_authenticated %}
+       
+    <div class="dropdown ">
+    <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" ><button style="margin-left: -8em;" class="btn btn-outline-success my-2 my-sm-0" ><i class="fa fa-user" aria-hidden="true">&nbsp;</i>{{user.get_username}}</button></a>
+  <div class="dropdown-menu" style="margin-left: -8em;" aria-labelledby="dropdownMenuButton">
+  <a class="dropdown-item" href="/accounts/profile">My Profile</a>
+  <a  class="dropdown-item" href="{% url 'logout'%}?={{request.path}}">Logout</a>
+  <a  class="dropdown-item" href="/userprofile/update/{{user.userprofile.pk}}">Edit my profile</a>
+ 
+  {% if user.userprofile.user_type == "tea" %}
+  {% else %}
+   <a  class="dropdown-item" href="{% url 'create-feedback-detail' %}">Add Feedbacks</a>
+  {% endif %}
+  
+  {% if user.userprofile.user_type == "tea" %}
+  <a  class="dropdown-item" href="{% url 'feedback' %}">My Feedbacks</a>
+  {% endif %}
+   <a  class="dropdown-item" href="/accounts/password_change/">Change Password</a>
+        </div>
+        {%else %}
+         <a href="{% url 'login'%}">  <button class="btn btn-outline-success my-2 my-sm-0" >Login</button></a>
+        {%endif%}
+  </div>
+
+</nav>
+{%block content%}
+
+{%endblock%}
+<div class="panel-footer" style="height: -1px;">
+            <div class="modal-footer footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 text-left">
+                            <h5>All Copyright Reserved &copy; 2017</h5>
+                        </div>
+                        <div class="col-lg-4 col-md-4 text-center">
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-md"></i></a>
+        </li>
+        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-md"></i></a>
+        </li>
+        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin fa-md"></i></a>
+        </li>
+    </ul>
+</div>
+                        <div class="col-md-4 col-sm-4 text-right">
+                            <h5><a style="color: grey" href="#">Terms and Condition</a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
+</body>
+</html>

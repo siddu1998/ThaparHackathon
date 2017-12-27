@@ -1,0 +1,26 @@
+{% extends "base/base_generic.html" %}
+
+{% block content %}
+
+<div class="detail-form">
+
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+{% for field in form%}
+        	<div class="row">
+        	<div class="col-sm-3">{{field.label}}</div>
+        	<div class="col-sm-6" >{{field}}</div>
+        	
+        		
+        	</div><br>
+        {%endfor%}
+
+ 
+
+
+    <center><button type="submit">Yup!Done</button></center>
+</form>
+</div>
+
+{% endblock %}

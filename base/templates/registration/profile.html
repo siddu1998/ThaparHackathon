@@ -1,0 +1,265 @@
+{% extends "base/base_generic.html" %}
+
+
+{% block content %}
+
+
+
+
+<div class="profile-detail-header container-fluid">
+
+<div class="row"  >
+
+<div class="col-sm-6" style="border-left-color: grey">
+<h1 class="text-left"><b>{{user.userprofile.first_name}}&nbsp;{{user.userprofile.last_name}} </b></h1> 
+<hr>
+<p style="color: white;">{{user.userprofile.desciption}}</p>
+
+
+
+
+</div>
+<div class="col-sm-6">
+
+{% if user.userprofile.profile_image%}
+  <img  class="rounded-circle" width="200px" height="200px"  src="{{user.userprofile.profile_image.url}}">
+{%endif%}
+
+  </div>
+</div>
+
+
+
+</div>
+<div style="margin: 8px">
+<div  id="1">
+<div class="profile-detail-block-1">
+  
+    
+    <div class="row profile-element">
+    <div class="row profile-detail-heading">Academic Detail
+
+       <small style="color: blue; font-size: 15px"><a href="/AcademicDetail/create">&nbsp;| Add  your Academic details </a></small>
+   
+    </div>
+
+
+    <div class="col-sm-12">
+    <ul>
+          {% for academic_detail in user.userprofile.academicdetail_set.all %}
+    
+       
+       <li >
+      
+          <h4 class="profile-detail-inst"><b>{{academic_detail.institute}}</b> 
+           <small><a style="color: blue;"   href="{% url 'update' academic_detail.pk %}">Edit | </a></small>
+            <small><a style='color: red;'   href="{% url 'delete' academic_detail.pk %}"> Delete</a></small>
+          </h4>
+          <h6 style="font-style: italic; color: #999;"> {{academic_detail.entering}} - {{academic_detail.leaving}} </h6>
+          <h5 style="color: #333;">{{academic_detail.desciption}}</h5>
+          <b><h5>Percentage/Grade: </b>{{academic_detail.percentage}}</h5> 
+        </li>
+        {%endfor%}
+     </ul>
+    </div>
+    </div>
+      
+  
+  </ol>
+</div>
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Projects
+      <small style="color: blue; font-size: 15px"><a href="/projects/create">&nbsp;| Add  new Projects </a></small>
+    </div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in user.userprofile.projects_set.all %}
+           
+
+            <h4 class="profile-detail-inst"><b><a href="//{{each.link}}">{{each.title}}</b> </a>
+               <small><a style="color: blue;"   href="{% url 'update-projects' each.pk %}">Edit | </a></small>
+            <small><a style='color: red;'   href="{% url 'delete-projects' each.pk %}"> Delete</a></small>
+            </h4>
+             <h6 style="font-style: italic; color: #999;"> {{each.start_date}} - {{each.end_date}} </h6>
+            <h5 style="color: #333;">{{each.desciption}}</h5>
+        </li>
+        {%endfor%}
+   </ul>
+   </div>
+    </div>
+</div>
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Experience
+     <small style="color: blue; font-size: 15px"><a href="/experience/create">&nbsp;| Add  your Experiences </a></small>
+    </div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in user.userprofile.experience_set.all %}
+    
+        <li>
+          
+            <h4 class="profile-detail-inst"><b>{{each.title}}</b> </a>
+               <small><a style="color: blue;"   href="{% url 'update-exp' each.pk %}">Edit | </a></small>
+            <small><a style='color: red;'   href="{% url 'delete-exp' each.pk %}"> Delete</a></small>
+            </h4>
+             <h6 style="font-style: italic; color: #999;"> {{each.start_date}} - {{each.end_date}} </h6>
+             <h5 style="color: #333;">{{each.organisation}}</h5>
+            <h5 style="color: #333;">{{each.desciption}}</h5>
+
+     </li>
+        {%endfor%}
+   </ul>
+   </div>
+    </div>
+</div>
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Accomplishments
+      <small style="color: blue; font-size: 15px"><a href="/accomp/create">&nbsp;| Add your Accomplishments </a></small>
+    </div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in user.userprofile.accomplishments_set.all %}
+    
+        <li>
+         
+            <h4 class="profile-detail-inst"><b>{{each.title}}</b> </a>
+            <small><a style="color: blue;"   href="{% url 'update-accomp' each.pk %}">Edit | </a></small>
+            <small><a style='color: red;'   href="{% url 'delete-accomp' each.pk %}"> Delete</a></small>
+            </h4>
+            
+            
+            <h5 style="color: #333;">{{each.desciption}}</h5>
+
+     </li>
+        {%endfor%}
+   </ul>
+   </div>
+    </div>
+</div>
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Skills
+    <small style="color: blue; font-size: 15px"><a href="/skill/create">&nbsp;| Add  Skills </a></small>
+    </div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in user.userprofile.skills_set.all %}
+    
+        <li>
+          
+            
+            
+            <h5 style="color: #333;">{{each.skill_name}}
+            <small><a style="color: blue;"   href="{% url 'update-skill' each.pk %}">Edit | </a></small>
+            <small><a style='color: red;'   href="{% url 'delete-skill' each.pk %}"> Delete</a></small>
+            </h5>
+
+     </li>
+        {%endfor%}
+    </ul>
+   </div>
+    </div>
+</div>
+
+
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Research and Publications
+    <small style="color: blue; font-size: 15px"><a href="{% url 'create-research-detail' %}">&nbsp;| Add  Publication </a></small>
+    </div>
+    <div class="col-sm-12">
+
+   
+    {% if user.research_paper_set.all %}
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Number of Publications'],
+          {% for i in count_paper %}
+          ['{{i.year}}', {{i.the_count}}],
+          {%endfor%}
+        ]);
+
+        var options = {
+          title: 'Year Wise Publications :  {{user.userprofile.first_name}} {{user.userprofile.last_name}}',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+ 
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    {% else %}
+    <p>no publications yet..</p>
+    {% endif %}
+  
+
+
+ 
+    
+
+    <ul>
+          {% for each in user.research_paper_set.all %}
+          
+        <li>
+            
+            
+            <h7 style="color: #333;font-weight: bold;">{{each.title}}
+            <small><a style="color: blue;"   href="#">Edit | </a></small>
+            <small><a style='color: red;'   href="#"> Delete</a></small>
+            </h7>
+            <p>Year Of Publication: {{ each.year}}</p>
+            <p> Authors:{% for authors in each.author.all %}
+              {{ authors.userprofile.first_name }} {{authors.userprofile.last_name}} |
+              {% endfor %}</p>
+
+              <p style="color: #333;font-weight: bold;" > Publication Journal/Conference :{{ each.description }}</p>
+
+     </li>
+     <hr>
+        {%endfor%}
+    </ul>
+   </div>
+    </div>
+</div>
+
+
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Contact Information
+       <small style="color: blue; font-size: 15px"><a href="/contact/create">&nbsp; | Add Contact info </a></small>
+    </div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in user.userprofile.contact_set.all %}
+    
+        <li>
+              
+            <h5 style="color: #333;">Phone :{{each.phone}}
+            <small><a style="color: blue;"   href="{% url 'update-contact' each.pk %}">Edit | </a></small>
+            <small><a style='color: red;'   href="{% url 'delete-contact' each.pk %}"> Delete</a></small>
+            </h5>
+            
+              <h5 style="color: #333;">Email id:{{each.email_id}}</h5>
+            
+     </li>
+        {%endfor%}
+   </ul>
+   </div>
+    </div>
+</div>
+
+
+
+
+{%endblock%}

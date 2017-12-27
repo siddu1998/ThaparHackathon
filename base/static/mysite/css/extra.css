@@ -1,0 +1,207 @@
+.sidebar-header{
+    margin-top: 5px;
+    border-radius: 15px;
+    vertical-align: middle;
+    background-color:#008B8B;
+    width: 100%;
+    font-size: 25px;
+    height: 45px;
+    color: white;
+    text-align: center;
+   
+}
+.notice{
+   margin: 10%;
+
+
+}
+
+/**
+ * Demo Styles
+ */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+.demo h1 {
+  margin-top: 0;
+}
+
+/**
+ * Footer Styles
+ */
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #383838;
+  text-align: center;
+  color: white;
+}
+.login-panel{
+  width: 350px;
+
+}
+
+
+.login-body, html {
+  height: 100%;
+  background-repeat: no-repeat;    /*background-image: linear-gradient(rgb(12, 97, 33),rgb(104, 145, 162));*/
+  background-color: black;
+  position: relative;
+}
+#login-box {
+  position: absolute;
+  margin-top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+   box-shadow: 4px 16px 32px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  
+
+  min-height: 250px;
+  padding: 20px;
+  z-index: 9999;
+}
+#login-box .logo .logo-caption {
+  font-family: 'Poiret One', cursive;
+  
+  text-align: center;
+  margin-bottom: 0px;
+}
+#login-box .logo .tweak {
+  color: #ff5252;
+}
+
+
+
+
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+
+.list-row{
+  margin-left: 10%;
+
+}
+.profile-detail-heading{
+ font-weight: bold;
+  color: #999;
+  font-size: 20px;
+  line-height: 25px;
+  padding: 7px;
+  margin-left: 5px;
+  background-color: #eff6f7;
+
+}
+
+.profile-detail-header{
+
+  background-color: #4a4a4a;
+}
+.text-left{
+  color: #f5ae23;
+}
+.edit-account{
+  margin-left: 80%;
+}
+.user-menu{
+  padding: 3px;
+  margin: 3px;
+}
+.profile-detail-block-1{
+   background-color: #eff6f7;
+   clear: both;
+}
+.profile-element{
+  margin: 5px;
+}
+.profile-detail-inst{
+  color: #3498DB;
+  line-height: 12px;
+  font-size: 20px;
+
+}
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+.detail-form{
+  margin-left: 10%;
+}
+.filter-form{
+  margin-left: 10%;
+}
+
+/*Panel tabs*/
+.panel-tabs {
+    position: relative;
+   
+    clear:both;
+    border-bottom: 1px solid transparent;
+}
+
+.panel-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+}
+
+.panel-tabs > li > a {
+    margin-right: 2px;
+    margin-top: 4px;
+    line-height: .85;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+   
+}
+
+.panel-tabs > li > a:hover {
+    border-color: transparent;
+    
+    background-color: transparent;
+}
+
+.panel-tabs > li.active > a,
+.panel-tabs > li.active > a:hover,
+.panel-tabs > li.active > a:focus {
+    color: #fff;
+    cursor: default;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: rgba(255,255,255, .23);
+    border-bottom-color: transparent;
+}

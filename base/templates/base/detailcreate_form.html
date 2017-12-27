@@ -1,0 +1,37 @@
+{% extends "base/base_generic.html" %}
+
+{% block content %}
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<br>
+    <div class="card">
+    <div class="card-header text-center"><strong>Panel Heading{{form_name}}</strong></div>
+    <div class="card-body">
+        <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %} 
+        {{form.errors}}
+        {% for field in form%}
+            <div class="form-group">
+                <div class="mx-sm-auto col-md-12"> <span class="text-danger small">{{ field.errors }}</span>
+                </div>
+                <label class="form-control-label col-ms-12"><strong>{{ field.label }}</strong>
+                </label>
+                <div class="col-lg-12 " >{{ field}}</div>
+                <br>
+            </div>{%endfor%}
+            
+        
+    </div>
+
+        <button class="btn btn-success" type="submit">Yup!Done</button>
+</div>
+</form>
+</div>
+<div class="col-md-2"></div>
+</div>
+   
+  
+
+
+
+{% endblock %}

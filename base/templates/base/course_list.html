@@ -1,0 +1,37 @@
+{% extends "base/base_generic.html" %}
+
+{% block content %}
+<br>
+
+  {% if course_list %}
+    <ul>
+
+      {% for each in course_list %}
+        
+      <div class="row list-row">
+       <div class="col-sm-2"> 
+    </div>
+        <div class="col-sm-5">
+          
+          <div class="container">
+              <h4><b> <a href="{{ each.get_absolute_url }}" >{{ each.sub_code }}</a> </b></h4> 
+                 
+                 <p></p> 
+          </div>
+          <hr>
+        </div>
+
+      
+     
+
+     
+
+              
+      </div>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>These are Super Cool Writers</p>
+    {% endif %}       
+{% endblock %}

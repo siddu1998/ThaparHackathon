@@ -1,0 +1,231 @@
+{% extends "base/base_generic.html" %}
+{% block headfile %}
+{% endblock %}
+{% block content %}
+
+<div class="profile-detail-header container-fluid">
+
+<div class="row">
+
+<div class="col-sm-6" >
+<h1 class="text-left"><b>{{userprofile.first_name}}&nbsp;{{userprofile.last_name}} </b></h1> 
+<hr>
+<p style="color: white;">{{userprofile.desciption}}</p>
+
+
+</div>
+<div class="col-sm-6">
+
+{% if userprofile.profile_image%}
+  <img class="rounded-circle" width="200px" height="200px"  src="{{userprofile.profile_image.url}}">
+{%endif%}
+
+  </div>
+</div>
+
+
+
+</div>
+<div style="margin: 8px">
+<div  id="1">
+
+<div class="profile-detail-block-1">
+  
+    
+    <div class="row profile-element">
+    <div class="row profile-detail-heading">Academic Detail</div>
+
+    <div class="col-sm-12">
+     <ul>
+          {% for academic_detail in userprofile.academicdetail_set.all %}
+    
+      
+       <li>
+     <h4 class="profile-detail-inst"><b>{{academic_detail.institute}}</b> </h4>
+     <h6 style="font-style: italic; color: #999;"> {{academic_detail.entering}} - {{academic_detail.leaving}} </h6>
+     <h5 style="color: #333;">{{academic_detail.desciption}}</h5>
+     <b><h5>Percentage/Grade: </b>{{academic_detail.percentage}}</h5> 
+     </li>
+     {%endfor%}
+      </ul>
+      </div>
+</div>
+     
+
+  
+   
+      
+  
+  </ol>
+</div>
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Projects</div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in userprofile.projects_set.all %}
+    
+        <li>
+            <h4 class="profile-detail-inst"><b><a href="//{{each.link}}">{{each.title}}</b> </a></h4>
+             <h6 style="font-style: italic; color: #999;"> {{each.start_date}} - {{each.end_date}} </h6>
+            <h5 style="color: #333;">{{each.desciption}}</h5>
+     </li>
+        {%endfor%}
+   </ul>
+   </div>
+    </div>
+</div>
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Experience</div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in userprofile.experience_set.all %}
+    
+        <li>
+            <h4 class="profile-detail-inst"><b>{{each.title}}</b> </a></h4>
+             <h6 style="font-style: italic; color: #999;"> {{each.start_date}} - {{each.end_date}} </h6>
+             <h5 style="color: #333;">{{each.organisation}}</h5>
+            <h5 style="color: #333;">{{each.desciption}}</h5>
+
+     </li>
+        {%endfor%}
+   </ul>
+   </div>
+    </div>
+</div>
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Accomplishments</div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in userprofile.accomplishments_set.all %}
+    
+        <li>
+            <h4 class="profile-detail-inst"><b>{{each.title}}</b> </a></h4>
+            
+            
+            <h5 style="color: #333;">{{each.desciption}}</h5>
+
+     </li>
+        {%endfor%}
+   </ul>
+   </div>
+    </div>
+</div>
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Skills</div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in userprofile.skills_set.all %}
+    
+        <li>
+            
+            
+            <h5 style="color: #333;">{{each.skill_name}}</h5>
+
+     </li>
+        {%endfor%}
+   </ul>
+   </div>
+    </div>
+</div>
+
+
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Research and Publications
+    
+    </div>
+    <div class="col-sm-12">
+
+    {% if userprofile.user.research_paper_set.all %}
+   
+    
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Number of Publications'],
+          {% for i in count_paper %}
+          ['{{i.year}}', {{i.the_count}}],
+          {%endfor%}
+        ]);
+
+        var options = {
+          title: 'Year Wise Publications :  {{userprofile.first_name}} {{userprofile.last_name}}',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+ 
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  
+    {% else %}
+    <p>no publications yet.. </p>
+
+    {% endif %}
+    
+
+    <ul>
+          {% for each in userprofile.user.research_paper_set.all %}
+       
+        <li>
+            
+            
+            <h5 style="color: #333;font-weight: bold;">{{each.title}}
+          
+            </h5>
+            <p>Year Of Publication: {{ each.year}}</p>
+            <p> Authors:{% for authors in each.author.all %}
+              {{ authors.userprofile.first_name }} {{authors.userprofile.last_name}} |
+              {% endfor %}</p>
+
+              <p style="color: #333;font-weight: bold;" > Publication Journal/Conference :{{ each.description }}</p>
+
+     </li>
+     <hr>
+        {%endfor%}
+    </ul>
+   </div>
+    </div>
+</div>
+
+
+<div class="profile-detail-block-1">
+  <div class="row profile-element">
+    <div class="row profile-detail-heading">Contact Information</div>
+    <div class="col-sm-12">
+    <ul>
+          {% for each in userprofile.contact_set.all %}
+    
+        <li>
+            
+            
+            <h5 style="color: #333;">Phone :{{each.phone}}</h5>
+            <h5 style="color: #333;">Email id:{{each.email_id}}</h5>
+
+     </li>
+        {%endfor%}
+   </ul>
+   </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+           
+{% endblock %}

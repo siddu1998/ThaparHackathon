@@ -1,0 +1,36 @@
+{%extends 'base/base_generic.html'%}
+{%block content%}
+
+
+
+
+	{{sub_code.id}}
+	
+	<p>{{sub_code.corse_cord}} is the cordinator of this course</p>
+	{% if request.user.is_authenticated and  sub_code.corse_cord == request.user %}
+	
+	
+	 <form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+{% for field in form%}
+        	<div class="row">
+        	<div class="col-sm-3">{{field.label}}</div>
+        	<div class="col-sm-6" >{{field}}</div>
+        	
+        		
+        	</div><br>
+        {%endfor%}
+
+ 
+
+
+    <center><button type="submit">Yup!Done</button></center>
+</form>
+	{%else%}
+	<p>Oops! looks like you are not authorized to edit this course incase of dispute <br>please contact CITM lab</p>
+
+
+	{%endif%}
+	
+{%endblock%}

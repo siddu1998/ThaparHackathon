@@ -1,0 +1,14 @@
+{%extends 'base/base_generic.html'%}
+{%block content%}
+{%load staticfiles%}
+
+<div class="card text-white bg-info mb-3 notice" style="max-width: 20rem;">
+  <div class="card-header">{{latestupdates.date}}</div>
+  <div class="card-body">
+    <h4 class="card-title">{{latestupdates.heading}}</h4>
+    <p class="card-text">{{latestupdates.text|safe|linebreaks}}</p>
+  </div>
+</div>
+
+
+{%endblock%}

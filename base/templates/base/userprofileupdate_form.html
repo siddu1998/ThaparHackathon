@@ -1,0 +1,27 @@
+{% extends "base/base_generic.html" %}
+
+{% block content %}
+{% if request.user.is_authenticated and userprofile.user == request.user %}
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.media }}
+    {{form.as_p}}
+
+    <button type="submit">Yup!Done</button>
+</form>
+{% else %}
+
+<div style="margin-top: 90px"> 
+<center >
+    <h1 style="color: gray"> Oops! <br>You are Trying to enter<br> unauthorized property</h1>
+</center>
+</div>
+
+<center>
+
+   	<a href="/"><button type="button" class="btn btn-outline-danger">Academic Home</button></a>
+    <a href="/accounts/profile"><button type="button" class="btn btn-outline-success">Profile</button></a>
+
+</center>
+{% endif %}
+{% endblock %}

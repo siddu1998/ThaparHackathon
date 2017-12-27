@@ -1,0 +1,48 @@
+{% extends "base/base_generic.html" %}
+{% load staticfiles %}
+{% block headfile %}
+    <link href="https://fonts.googleapis.com/css?family=Germania+One" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+        }
+
+        .bg {
+            /* The image used */
+            background-image: url("{% static 'mysite/img/back.jpg' %}");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<div class="bg">
+<center>
+<h1 style="color: white; margin-top: -1px; font-family: 'Germania One', cursive; font-size: 3em;">
+    <br>
+    <br>Code till</h1>
+</center>
+<center>
+    <h1 style="color: red; font-weight: bold; font-size: 150px">&infin;</h1>
+</center>
+<center>
+    <h1 style="color: white; font-family: 'Germania One', cursive; font-size: 5em;">
+    Computer Science Department <br>Thapar University </h1>
+</center>
+<center>
+    
+    <a href="/"><button type="button" class="btn btn-success btn-lg">Academic Home</button></a>
+    <a href="{% url 'login'%}"><button type="button" class="btn btn-info btn-lg">Login</button></a>
+
+</center>
+</div>
+{% endblock %}
