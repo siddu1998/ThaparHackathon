@@ -54,8 +54,8 @@ class FeedbackCreateView(LoginRequiredMixin,generic.CreateView):
 		feedback=form.save(commit=False)
 		feedback.Student=User.objects.get(username=self.request.user)
 		a = uclassify()
-		a.setWriteApiKey('WIPVAtuJ5Gq3')
-		a.setReadApiKey('JiP2L5HBORVM')
+		a.setWriteApiKey('-----GET YOUR OWN WRITE KEY-----')
+		a.setReadApiKey('-----GET YOUR OWN READ KEY-----')
 		#a.create("GorB") #Creates Classifier named "ManorWoman"
 		#a.addClass(["g","b"],"gorb") #Adds two class named "man" and "woman" to the classifier "ManorWoman"
 		a.train(["Boring Bad","Late Slow","Too Fast","Dull BC MC BKL MKL Ganda Wost Worse Sleep Din't  Not Can't"],"b","GorB")
