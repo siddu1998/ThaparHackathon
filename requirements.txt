@@ -33,6 +33,6 @@ runp==0.0.2
 sip==4.19.3
 six==1.10.0
 twilio==6.4.2
-urllib3==1.21.1
+urllib3==1.26.5
 virtualenv==15.1.0
 whitenoise==3.3.1
